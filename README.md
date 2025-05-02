@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Hayden Holzhausers Lennar Application
 
 ## Getting Started
 
-First, run the development server:
+First, install dependencies
 
 ```bash
-npm run dev
-# or
+yarn
+```
+
+Second, run the development server:
+
+```bash
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Open the Apollo Client at [http://localhost:4000](http://localhost:4000)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Briefly describe how you would structure a table to store these emails in a real SQL-based database (no implementation required).
 
-## Learn More
+If I just wanted a table to store these emails, I'd simply make a `user-emails` table that has a forgein key referencing the users id (assuming this exists in a existing table) and then a column called `email` that uses a char type. If there was PII and we need to encrpt this data we could do that.
 
-To learn more about Next.js, take a look at the following resources:
+## Thank You
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This was a fun little project to throw together and really appreciate the teams time looking over it!
