@@ -1,32 +1,16 @@
 "use client";
 
-import { gql, useLazyQuery, useMutation } from "@apollo/client";
+import { useLazyQuery, useMutation } from "@apollo/client";
 import client from "@/lib/apolloClient";
 import { FC, useState } from "react";
 import { EmailObject } from "@/graphql/resolvers/email";
 import { Spinner } from "@/components/spinner";
+import { SUBSCRIBE_MUTATION } from "@/graphql/mutations/subscribeEmail";
+import { EMAILS_QUERY } from "@/graphql/queries/getEmails";
 
 type Props = {
   preFetchedEmails: EmailObject[];
 };
-
-const SUBSCRIBE_MUTATION = gql`
-  mutation Subscribe($email: String!) {
-    subscribe(email: $email) {
-      id
-      email
-    }
-  }
-`;
-
-const EMAILS_QUERY = gql`
-  query {
-    emails {
-      id
-      email
-    }
-  }
-`;
 
 type SubscribeData = {
   subscribe: {
@@ -63,6 +47,7 @@ export const SignUp: FC<Props> = ({ preFetchedEmails }) => {
     e.preventDefault();
     await subscribe({ variables: { email } });
     await getEmails();
+    setEmail("");
   };
 
   return (
